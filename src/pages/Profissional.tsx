@@ -6,6 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { ArrowLeft, Calculator, Pill, AlertTriangle } from "lucide-react";
+import { SearchBar } from "@/components/SearchBar";
+import medicationsImage from "@/assets/medications.jpg";
 import {
   Select,
   SelectContent,
@@ -59,6 +61,7 @@ const Profissional = () => {
   const [peso, setPeso] = useState("");
   const [medicamentoSelecionado, setMedicamentoSelecionado] = useState("");
   const [doseCalculada, setDoseCalculada] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const calcularDose = () => {
     if (!peso || !medicamentoSelecionado) return;
@@ -85,6 +88,12 @@ const Profissional = () => {
     );
   };
 
+  const filteredMedicamentos = medicamentos.filter(
+    (m) =>
+      m.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      m.avisos.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary">
       {/* Header */}
@@ -105,7 +114,24 @@ const Profissional = () => {
         </div>
       </header>
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 max-w-6xl">
+        {/* Search Bar */}
+        <div className="mb-6">
+          <SearchBar
+            value={searchTerm}
+            onChange={setSearchTerm}
+            placeholder="Pesquisar medicamentos..."
+          />
+        </div>
+
+        {/* Hero Image */}
+        <div className="mb-8 rounded-lg overflow-hidden shadow-[var(--shadow-large)]">
+          <img 
+            src={medicationsImage} 
+            alt="Medicamentos veterinários" 
+            className="w-full h-48 object-cover"
+          />
+        </div>
         {/* Calculadora de Doses */}
         <Card className="mb-8 p-6 shadow-[var(--shadow-medium)]">
           <div className="flex items-center gap-2 mb-4">
@@ -177,29 +203,43 @@ const Profissional = () => {
             <h2 className="text-2xl font-bold text-foreground">Dosagens de Medicações</h2>
           </div>
 
-          {medicamentos.map((med) => (
-            <Card key={med.nome} className="p-6 hover:shadow-[var(--shadow-medium)] transition-shadow">
-              <h3 className="text-xl font-semibold text-foreground mb-3">{med.nome}</h3>
-              
-              <div className="grid md:grid-cols-2 gap-4 mb-3">
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground">Dosagem</p>
-                  <p className="text-foreground">{med.dosagem}</p>
+          {filteredMedicamentos.map((med) => (
+            <Card key={med.nome} className="p-6 hover:shadow-[var(--shadow-medium)] transition-all border-2 hover:border-accent">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-lg bg-accent/10">
+                  <Pill className="h-6 w-6 text-accent" />
                 </div>
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground">Intervalo</p>
-                  <p className="text-foreground">{med.intervalo}</p>
+                
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">{med.nome}</h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-4 mb-3">
+                    <div>
+                      <p className="text-sm font-medium text-muted-foreground">Dosagem</p>
+                      <p className="text-foreground font-medium">{med.dosagem}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-muted-foreground">Intervalo</p>
+                      <p className="text-foreground font-medium">{med.intervalo}</p>
+                    </div>
+                  </div>
+
+                  <Alert className="border-accent/30 bg-accent/5">
+                    <AlertTriangle className="h-4 w-4 text-accent" />
+                    <AlertDescription className="text-sm text-foreground">
+                      <strong>Avisos:</strong> {med.avisos}
+                    </AlertDescription>
+                  </Alert>
                 </div>
               </div>
-
-              <Alert className="border-accent/50 bg-accent/5">
-                <AlertTriangle className="h-4 w-4 text-accent" />
-                <AlertDescription className="text-sm text-foreground">
-                  <strong>Avisos:</strong> {med.avisos}
-                </AlertDescription>
-              </Alert>
             </Card>
           ))}
+          
+          {filteredMedicamentos.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">Nenhum medicamento encontrado para sua pesquisa.</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
