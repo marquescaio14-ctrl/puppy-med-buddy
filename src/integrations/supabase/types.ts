@@ -14,7 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      materiais_referencia: {
+        Row: {
+          ano: number | null
+          autores: string | null
+          categoria: string | null
+          created_at: string
+          descricao: string | null
+          id: string
+          publico: boolean | null
+          revista_ou_fonte: string | null
+          tipo: string
+          titulo: string
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          ano?: number | null
+          autores?: string | null
+          categoria?: string | null
+          created_at?: string
+          descricao?: string | null
+          id?: string
+          publico?: boolean | null
+          revista_ou_fonte?: string | null
+          tipo: string
+          titulo: string
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          ano?: number | null
+          autores?: string | null
+          categoria?: string | null
+          created_at?: string
+          descricao?: string | null
+          id?: string
+          publico?: boolean | null
+          revista_ou_fonte?: string | null
+          tipo?: string
+          titulo?: string
+          updated_at?: string
+          url?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
