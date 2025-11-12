@@ -7,6 +7,8 @@ import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { ArrowLeft, Calculator, Pill, AlertTriangle } from "lucide-react";
 import { SearchBar } from "@/components/SearchBar";
+import { useSearchMaterials } from "@/hooks/useSearchMaterials";
+import { MaterialSearchResults } from "@/components/MaterialSearchResults";
 import medicationsImage from "@/assets/medications.jpg";
 import {
   Select,
@@ -62,6 +64,7 @@ const Profissional = () => {
   const [medicamentoSelecionado, setMedicamentoSelecionado] = useState("");
   const [doseCalculada, setDoseCalculada] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const { results: materialResults, isSearching } = useSearchMaterials(searchTerm);
 
   const calcularDose = () => {
     if (!peso || !medicamentoSelecionado) return;
@@ -120,9 +123,16 @@ const Profissional = () => {
           <SearchBar
             value={searchTerm}
             onChange={setSearchTerm}
-            placeholder="Pesquisar medicamentos..."
+            placeholder="Pesquisar medicamentos, artigos científicos, protocolos..."
           />
         </div>
+
+        {/* Material Search Results */}
+        <MaterialSearchResults 
+          results={materialResults}
+          isSearching={isSearching}
+          searchTerm={searchTerm}
+        />
 
         {/* Hero Image */}
         <div className="mb-8 rounded-lg overflow-hidden shadow-[var(--shadow-large)]">

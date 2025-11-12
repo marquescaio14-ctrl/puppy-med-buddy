@@ -6,6 +6,8 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SearchBar } from "@/components/SearchBar";
+import { useSearchMaterials } from "@/hooks/useSearchMaterials";
+import { MaterialSearchResults } from "@/components/MaterialSearchResults";
 import { ArrowLeft, AlertTriangle, Shield, FileText, Download, CheckCircle2, XCircle, Scale, Calendar } from "lucide-react";
 import {
   Select,
@@ -20,6 +22,7 @@ const Tutores = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [pesoFilhote, setPesoFilhote] = useState("");
   const [idadeFilhote, setIdadeFilhote] = useState("");
+  const { results: materialResults, isSearching } = useSearchMaterials(searchTerm);
 
   const substanciasPerigosas = [
     "Paracetamol - Extremamente tóxico para cães e gatos, pode causar insuficiência hepática fatal",
@@ -114,9 +117,16 @@ const Tutores = () => {
           <SearchBar
             value={searchTerm}
             onChange={setSearchTerm}
-            placeholder="Pesquisar informações sobre segurança, medicamentos..."
+            placeholder="Pesquisar informações, artigos científicos, guias práticos..."
           />
         </div>
+
+        {/* Material Search Results */}
+        <MaterialSearchResults 
+          results={materialResults}
+          isSearching={isSearching}
+          searchTerm={searchTerm}
+        />
 
         {/* Filtro de Peso/Idade */}
         <Card className="mb-8 p-6 shadow-[var(--shadow-medium)]">

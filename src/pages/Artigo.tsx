@@ -1,9 +1,16 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Download, ExternalLink, FileText } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { SearchBar } from "@/components/SearchBar";
+import { useSearchMaterials } from "@/hooks/useSearchMaterials";
+import { MaterialSearchResults } from "@/components/MaterialSearchResults";
 
 export default function Artigo() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const { results: materialResults, isSearching } = useSearchMaterials(searchTerm);
+
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
       <div className="mb-8">
@@ -12,6 +19,22 @@ export default function Artigo() {
           Base de conhecimento científico sobre medicina veterinária de filhotes
         </p>
       </div>
+
+      {/* Search Bar */}
+      <div className="mb-6">
+        <SearchBar
+          value={searchTerm}
+          onChange={setSearchTerm}
+          placeholder="Pesquisar artigos, protocolos, guias práticos..."
+        />
+      </div>
+
+      {/* Material Search Results */}
+      <MaterialSearchResults 
+        results={materialResults}
+        isSearching={isSearching}
+        searchTerm={searchTerm}
+      />
 
       <Alert className="mb-8 bg-primary/5 border-primary/20">
         <BookOpen className="h-5 w-5 text-primary" />
