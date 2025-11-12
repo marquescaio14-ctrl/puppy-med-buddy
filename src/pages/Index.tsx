@@ -38,7 +38,7 @@ const Index = () => {
           <div className="flex items-center gap-3">
             <Stethoscope className="h-8 w-8 text-accent" />
             <div>
-              <h1 className="text-2xl font-bold text-foreground">Puppy Med Buddy</h1>
+            <h1 className="text-2xl font-bold text-foreground">Puppy Guide</h1>
               <p className="text-sm text-muted-foreground">Guia Veterinário para Filhotes</p>
             </div>
           </div>
@@ -49,7 +49,7 @@ const Index = () => {
       <section className="container mx-auto px-4 py-12 md:py-20">
         <div className="mx-auto max-w-3xl text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Bem-vindo ao Puppy Med Buddy
+            Bem-vindo ao Puppy Guide
           </h2>
           <p className="text-lg text-muted-foreground">
             Guia veterinário completo com informações precisas para profissionais, estudantes e tutores responsáveis.
@@ -96,7 +96,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border bg-card/50 backdrop-blur-sm mt-20">
         <div className="container mx-auto px-4 py-6 text-center text-sm text-muted-foreground">
-          <p>© 2024 Puppy Med Buddy. Todos os direitos reservados.</p>
+          <p>© 2024 Puppy Guide. Todos os direitos reservados.</p>
           <p className="mt-2">
             Informações de referência. Sempre consulte um médico veterinário qualificado.
           </p>

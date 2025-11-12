@@ -50,7 +50,6 @@ const Tutores = () => {
     { titulo: "Guia Prático Completo", descricao: "PDF com todas as dosagens e protocolos" },
     { titulo: "Artigo Científico", descricao: "Embasamento científico das recomendações" },
     { titulo: "Tabela de Dosagens", descricao: "Referência rápida para consulta" },
-    { titulo: "Protocolo de Emergência", descricao: "O que fazer em casos de intoxicação" },
   ];
 
   const getRecomendacaoPorPeso = () => {

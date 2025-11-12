@@ -28,7 +28,7 @@ export default function Sobre() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-foreground mb-4">Sobre o Puppy Med Buddy</h1>
+        <h1 className="text-4xl font-bold text-foreground mb-4">Sobre o Puppy Guide</h1>
         <p className="text-lg text-muted-foreground">
           Sua fonte confiável de informações veterinárias para cuidados com filhotes
         </p>
@@ -37,7 +37,7 @@ export default function Sobre() {
       <Card className="p-8 mb-8 bg-card">
         <h2 className="text-2xl font-semibold mb-4 text-foreground">Nossa Missão</h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
-          O Puppy Med Buddy foi criado para ser uma plataforma completa e confiável de informações
+          O Puppy Guide foi criado para ser uma plataforma completa e confiável de informações
           veterinárias, focada no cuidado de filhotes caninos e felinos. Nossa missão é fornecer
           informações precisas e atualizadas para profissionais veterinários, estudantes e tutores
           responsáveis.
