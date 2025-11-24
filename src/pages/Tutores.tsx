@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { SearchBar } from "@/components/SearchBar";
 import { useSearchMaterials } from "@/hooks/useSearchMaterials";
 import { MaterialSearchResults } from "@/components/MaterialSearchResults";
-import { ArrowLeft, AlertTriangle, Shield, FileText, Download, CheckCircle2, XCircle, Scale, Calendar } from "lucide-react";
+import { ArrowLeft, AlertTriangle, Shield, FileText, Download, CheckCircle2, XCircle, Scale, Calendar, Info } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -58,7 +58,7 @@ const Tutores = () => {
   const getRecomendacaoPorPeso = () => {
     const peso = parseFloat(pesoFilhote);
     if (!peso) return null;
-    
+
     if (peso < 2) return "Filhote muito pequeno (< 2kg): Cuidados intensivos necessários. Consulte veterinário urgentemente.";
     if (peso < 5) return "Filhote pequeno (2-5kg): Atenção especial à dosagem de medicamentos e frequência de alimentação.";
     if (peso < 10) return "Filhote médio (5-10kg): Siga protocolos padrão de vacinação e vermifugação.";
@@ -67,10 +67,10 @@ const Tutores = () => {
 
   const getRecomendacaoPorIdade = () => {
     if (!idadeFilhote) return null;
-    
+
     const [valor, unidade] = idadeFilhote.split('-');
     const num = parseInt(valor);
-    
+
     if (unidade === 'semanas') {
       if (num < 4) return "Período crítico: aleitamento materno essencial. Não separar da mãe.";
       if (num < 8) return "Início da socialização e primeira vermifugação. Manter com mãe e irmãos.";
@@ -86,7 +86,7 @@ const Tutores = () => {
 
   const filteredContent = (items: string[]) => {
     if (!searchTerm) return items;
-    return items.filter(item => 
+    return items.filter(item =>
       item.toLowerCase().includes(searchTerm.toLowerCase())
     );
   };
@@ -122,7 +122,7 @@ const Tutores = () => {
         </div>
 
         {/* Material Search Results */}
-        <MaterialSearchResults 
+        <MaterialSearchResults
           results={materialResults}
           isSearching={isSearching}
           searchTerm={searchTerm}
@@ -134,7 +134,7 @@ const Tutores = () => {
             <Scale className="h-5 w-5 text-accent" />
             Cuidados Específicos para seu Filhote
           </h2>
-          
+
           <div className="grid md:grid-cols-2 gap-4 mb-4">
             <div className="space-y-2">
               <Label htmlFor="peso">Peso do Filhote (kg)</Label>
@@ -180,7 +180,7 @@ const Tutores = () => {
                   </AlertDescription>
                 </Alert>
               )}
-              
+
               {getRecomendacaoPorIdade() && (
                 <Alert className="border-accent bg-accent/10">
                   <Calendar className="h-4 w-4 text-accent" />
@@ -204,7 +204,7 @@ const Tutores = () => {
               NUNCA administre medicamentos sem orientação veterinária.
             </p>
             <p className="mb-2">
-              A automedicação pode ser FATAL para filhotes. Muitos medicamentos seguros para 
+              A automedicação pode ser FATAL para filhotes. Muitos medicamentos seguros para
               humanos são extremamente tóxicos para cães e gatos.
             </p>
             <p className="font-semibold">
@@ -230,7 +230,7 @@ const Tutores = () => {
               </li>
             ))}
           </ul>
-          
+
           {filteredContent(substanciasPerigosas).length === 0 && (
             <p className="text-muted-foreground text-center py-4">Nenhum resultado encontrado.</p>
           )}
@@ -253,7 +253,7 @@ const Tutores = () => {
               </li>
             ))}
           </ul>
-          
+
           {filteredContent(boasPraticas).length === 0 && (
             <p className="text-muted-foreground text-center py-4">Nenhum resultado encontrado.</p>
           )}
@@ -275,17 +275,189 @@ const Tutores = () => {
           </ul>
         </Card>
 
-        {/* Materiais para Download */}
+        <Card className="mb-8 p-6 shadow-[var(--shadow-medium)]">
+          <div className="flex items-center gap-2 mb-4">
+            <Info className="h-6 w-6 text-primary" />
+            <h2 className="text-2xl font-bold text-foreground">Curiosidades – Raças de Cães e Gatos</h2>
+          </div>
+
+          <div className="overflow-x-auto rounded-lg border">
+            <table className="w-full text-left border-collapse">
+              <thead className="bg-muted">
+                <tr>
+                  <th className="px-4 py-3 font-semibold text-foreground">Espécie</th>
+                  <th className="px-4 py-3 font-semibold text-foreground">Raça</th>
+                  <th className="px-4 py-3 font-semibold text-foreground">Curiosidade</th>
+                </tr>
+              </thead>
+
+              <tbody className="divide-y">
+                <tr className="hover:bg-muted/30 transition">
+                  <td className="px-4 py-3">Cão</td>
+                  <td className="px-4 py-3">Golden Retriever</td>
+                  <td className="px-4 py-3">Extremamente dócil e inteligente, é uma das raças mais usadas como cão-guia.</td>
+                </tr>
+
+                <tr className="hover:bg-muted/30 transition">
+                  <td className="px-4 py-3">Cão</td>
+                  <td className="px-4 py-3">Bulldog Francês</td>
+                  <td className="px-4 py-3">Tem baixa tolerância ao calor por ser braquicefálico.</td>
+                </tr>
+
+                <tr className="hover:bg-muted/30 transition">
+                  <td className="px-4 py-3">Cão</td>
+                  <td className="px-4 py-3">Border Collie</td>
+                  <td className="px-4 py-3">Considerado o cão mais inteligente do mundo.</td>
+                </tr>
+
+                <tr className="hover:bg-muted/30 transition">
+                  <td className="px-4 py-3">Gato</td>
+                  <td className="px-4 py-3">Siamês</td>
+                  <td className="px-4 py-3">Conhecido por “conversar” muito e criar forte vínculo com o tutor.</td>
+                </tr>
+
+                <tr className="hover:bg-muted/30 transition">
+                  <td className="px-4 py-3">Gato</td>
+                  <td className="px-4 py-3">Maine Coon</td>
+                  <td className="px-4 py-3">Uma das maiores raças de gatos, extremamente dócil e curiosa.</td>
+                </tr>
+
+                <tr className="hover:bg-muted/30 transition">
+                  <td className="px-4 py-3">Gato</td>
+                  <td className="px-4 py-3">Persa</td>
+                  <td className="px-4 py-3">Possui focinho achatado e requer escovação frequente.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        <Card className="mb-8 p-6 shadow-[var(--shadow-medium)]">
+          <div className="flex items-center gap-2 mb-4">
+            <Info className="h-6 w-6 text-primary" />
+            <h2 className="text-2xl font-bold text-foreground">FIV e FeLV — O Que São?</h2>
+          </div>
+
+          <p className="text-muted-foreground mb-4">
+            A FIV (Vírus da Imunodeficiência Felina) e a FeLV (Vírus da Leucemia Felina)
+            são doenças virais que afetam exclusivamente gatos. Ambas comprometem o
+            sistema imunológico, tornando o animal mais suscetível a infecções.
+          </p>
+
+          <ul className="space-y-3">
+            <li className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+              <strong>FIV:</strong> transmitida principalmente através de mordidas profundas.
+            </li>
+            <li className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+              <strong>FeLV:</strong> transmitida por saliva, secreções e contato prolongado.
+            </li>
+            <li className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+              Não há cura, mas há tratamento de suporte e boa qualidade de vida com cuidados adequados.
+            </li>
+            <li className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+              Testes rápidos são recomendados para gatos adotados, resgatados ou em convívio múltiplo.
+            </li>
+          </ul>
+        </Card>
+
+        {/* Cuidados com filhotes recém-nascidos */}
+        <Card className="mb-8 p-6 shadow-[var(--shadow-medium)]">
+          <div className="flex items-center gap-2 mb-4">
+            <Info className="h-6 w-6 text-primary" />
+            <h2 className="text-2xl font-bold text-foreground">Cuidados com Filhotes Recém-Nascidos</h2>
+          </div>
+
+          <ul className="space-y-3">
+            <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
+              Filhotes precisam de aquecimento constante — eles não regulam temperatura sozinhos.
+            </li>
+            <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
+              O ideal é que permaneçam com a mãe até pelo menos 45 dias de vida.
+            </li>
+            <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
+              Alimentação deve ser feita com leite específico para pets, nunca leite de vaca.
+            </li>
+            <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
+              Filhotes precisam ser estimulados para urinar e defecar — a mãe faz isso lambendo.
+            </li>
+          </ul>
+        </Card>
+
+        <Card className="mb-8 p-6 shadow-[var(--shadow-medium)]">
+          <div className="flex items-center gap-2 mb-4">
+            <Info className="h-6 w-6 text-primary" />
+            <h2 className="text-2xl font-bold text-foreground">Importância de Ter o Documento do Animal</h2>
+          </div>
+
+          <p className="text-muted-foreground mb-4">
+            O documento do animal (carteirinha de vacinação ou registro) é essencial para:
+          </p>
+
+          <ul className="space-y-3">
+            <li className="p-3 bg-secondary/5 rounded-lg border border-secondary/20">
+              Provar vacinação atualizada em viagens, pet shops e parques.
+            </li>
+            <li className="p-3 bg-secondary/5 rounded-lg border border-secondary/20">
+              Garantir atendimento rápido em emergências veterinárias.
+            </li>
+            <li className="p-3 bg-secondary/5 rounded-lg border border-secondary/20">
+              Facilitar identificação e posse responsável em casos de perda.
+            </li>
+          </ul>
+        </Card>
+
+        {/* Importância da socialização */}
+        <Card className="mb-8 p-6 shadow-[var(--shadow-medium)]">
+          <div className="flex items-center gap-2 mb-4">
+            <Info className="h-6 w-6 text-primary" />
+            <h2 className="text-2xl font-bold text-foreground">Importância da Socialização</h2>
+          </div>
+
+          <ul className="space-y-3">
+            <li className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+              Animais bem socializados são mais confiantes e menos propensos a comportamentos agressivos.
+            </li>
+            <li className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+              A socialização precoce melhora a convivência com pessoas, outros animais e ambientes.
+            </li>
+            <li className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+              Reduz estresse em consultas veterinárias, passeios e transporte.
+            </li>
+          </ul>
+        </Card>
+
+        <Card className="mb-8 p-6 shadow-[var(--shadow-medium)]">
+          <div className="flex items-center gap-2 mb-4">
+            <Info className="h-6 w-6 text-primary" />
+            <h2 className="text-2xl font-bold text-foreground">Cuidados Pós-Vacina</h2>
+          </div>
+
+          <ul className="space-y-3">
+            <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
+              Após a vacina, evitar exercícios intensos por 24–48 horas.
+            </li>
+            <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
+              Monitorar possíveis inchaços, febre ou apatia — comuns, mas devem ser leves.
+            </li>
+            <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
+              O animal só deve ir a parques e locais públicos após concluir TODO o protocolo vacinal.
+            </li>
+            <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
+              Em caso de vômito persistente, dificuldade para respirar ou inchaço no rosto, procurar veterinário imediatamente.
+            </li>
+          </ul>
+        </Card>
+
         <Card className="p-6 shadow-[var(--shadow-medium)]">
           <div className="flex items-center gap-2 mb-4">
             <FileText className="h-6 w-6 text-primary" />
             <h2 className="text-2xl font-bold text-foreground">Materiais para Download</h2>
           </div>
-          
+
           <Alert className="mb-6 border-primary bg-primary/10">
             <AlertTriangle className="h-4 w-4 text-primary" />
             <AlertDescription className="text-foreground">
-              Estes materiais são recursos educativos gratuitos para consulta offline. 
+              Estes materiais são recursos educativos gratuitos para consulta offline.
               <strong> Não substituem a consulta com um médico veterinário.</strong>
             </AlertDescription>
           </Alert>
@@ -308,7 +480,7 @@ const Tutores = () => {
           </div>
 
           <p className="text-sm text-muted-foreground mt-6 text-center">
-            Os materiais para download estarão disponíveis em breve. 
+            Os materiais para download estarão disponíveis em breve.
             Entre em contato para mais informações.
           </p>
         </Card>
