@@ -96,7 +96,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border bg-card/50 backdrop-blur-sm mt-20">
         <div className="container mx-auto px-4 py-6 text-center text-sm text-muted-foreground">
-          <p>© 2024 Puppy Guide. Todos os direitos reservados.</p>
+          <p>© 2025 Puppy Guide. Todos os direitos reservados.</p>
           <p className="mt-2">
             Informações de referência. Sempre consulte um médico veterinário qualificado.
           </p>

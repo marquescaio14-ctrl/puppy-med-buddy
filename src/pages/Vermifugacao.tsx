@@ -16,19 +16,19 @@ const protocolos: Protocolo[] = [
   {
     idade: "2-4 semanas",
     vermifugo: "Fenbendazol",
-    dosagem: "50 mg/kg por 3 dias consecutivos",
+    dosagem: "Conforme recomendação veterinária.",
     observacoes: "Primeira vermifugação. Repetir a cada 2 semanas até 12 semanas"
   },
   {
     idade: "6-8 semanas",
     vermifugo: "Pirantel Pamoato",
-    dosagem: "5-10 mg/kg dose única",
+    dosagem: "Conforme recomendação veterinária",
     observacoes: "Eficaz contra ancilostomídeos e ascarídeos"
   },
   {
     idade: "12 semanas",
     vermifugo: "Ivermectina + Praziquantel",
-    dosagem: "Conforme peso do animal",
+    dosagem: "Conforme Recomendação veterinária",
     observacoes: "Amplo espectro. Repetir mensalmente até 6 meses"
   },
   {

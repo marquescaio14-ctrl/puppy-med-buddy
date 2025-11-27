@@ -204,7 +204,7 @@ const Tutores = () => {
               NUNCA administre medicamentos sem orientação veterinária.
             </p>
             <p className="mb-2">
-              A automedicação pode ser FATAL para filhotes. Muitos medicamentos seguros para
+              A administração de medicamentos pode ser FATAL para filhotes. Muitos medicamentos seguros para
               humanos são extremamente tóxicos para cães e gatos.
             </p>
             <p className="font-semibold">
