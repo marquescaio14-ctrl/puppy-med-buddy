@@ -168,7 +168,6 @@ const Profissional = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { results: materialResults, isSearching } = useSearchMaterials(searchTerm);
   const [medicalSearch, setMedicalSearch] = useState('');
-
   const calcularDose = () => {
     if (!peso || !medicamentoSelecionado) return;
 
@@ -177,12 +176,13 @@ const Profissional = () => {
 
     if (!med) return;
 
-    // Extract dosage range
-    const dosageMatch = med.dosagem.match(/(\d+(?:\.\d+)?)-?(\d+(?:\.\d+)?)?/);
-    if (!dosageMatch) return;
+    // Extrai todos os números da dosagem
+    let numbers = med.dosagem.replace(",", ".").match(/\d+(?:\.\d+)?/g);
 
-    const minDose = parseFloat(dosageMatch[1]);
-    const maxDose = dosageMatch[2] ? parseFloat(dosageMatch[2]) : minDose;
+    if (!numbers || numbers.length === 0) return;
+
+    const minDose = parseFloat(numbers[0]);
+    const maxDose = numbers[1] ? parseFloat(numbers[1]) : minDose;
 
     const doseMin = (minDose * pesoNum).toFixed(2);
     const doseMax = maxDose !== minDose ? (maxDose * pesoNum).toFixed(2) : null;
@@ -193,6 +193,7 @@ const Profissional = () => {
         : `${doseMin} mg ${med.intervalo}`
     );
   };
+
 
   const filteredMedicamentos = medicamentos.filter(
     (m) =>

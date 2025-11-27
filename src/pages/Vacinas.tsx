@@ -25,19 +25,11 @@ const vacinas: Vacina[] = [
   },
   {
     nome: "Antirrábica",
-    idade: "12-16 semanas",
+    idade: "16 semanas",
     doencas: ["Raiva"],
     doses: "Dose única anual",
     observacoes: "Obrigatória por lei. Aplicar após completar série de V8/V10",
     tipo: "essencial"
-  },
-  {
-    nome: "Giárdia",
-    idade: "8 semanas (1ª dose)",
-    doencas: ["Giardíase"],
-    doses: "2 doses com intervalo de 21 dias",
-    observacoes: "Recomendada para filhotes em ambientes com muitos cães",
-    tipo: "recomendada"
   },
   {
     nome: "Gripe Canina (Tosse dos Canis)",
@@ -47,14 +39,6 @@ const vacinas: Vacina[] = [
     observacoes: "Essencial para cães que frequentam creches, hotéis ou parques",
     tipo: "recomendada"
   },
-  {
-    nome: "Leishmaniose",
-    idade: "4 meses (após V8/V10 completa)",
-    doencas: ["Leishmaniose Visceral"],
-    doses: "3 doses com intervalo de 21 dias",
-    observacoes: "Recomendada em áreas endêmicas. Realizar teste antes da vacinação",
-    tipo: "opcional"
-  }
 ];
 
 const Vacinas = () => {
