@@ -174,7 +174,9 @@ const Profissional = () => {
     const pesoNum = parseFloat(peso);
     const med = medicamentos.find((m) => m.nome === medicamentoSelecionado);
 
-    if (!med) return;
+    if (!med)  {
+      return;
+    }
 
     // Extrai todos os números da dosagem
     let numbers = med.dosagem.replace(",", ".").match(/\d+(?:\.\d+)?/g);

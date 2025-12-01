@@ -18,7 +18,7 @@ const Index = () => {
       title: "Para Estudantes",
       description: "Ferramentas e informações para estudantes de medicina veterinária",
       icon: GraduationCap,
-      path: "/profissional",
+      path: "/estudantes",
       gradient: "from-accent/80 to-accent",
     },
     {

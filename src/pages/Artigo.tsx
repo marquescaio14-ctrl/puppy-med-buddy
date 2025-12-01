@@ -223,8 +223,8 @@ export default function Artigo() {
         <div className="flex flex-wrap gap-4">
           <Button className="flex-1 min-w-[200px]" asChild>
             <a href="https://repositorio.ufmg.br/server/api/core/bitstreams/da574d75-7906-4885-86f1-385e6ecb7d47/content"
-               target="_blank" 
-               rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <ExternalLink className="h-4 w-4 mr-2" />
               Ler Artigo Completo
@@ -333,6 +333,113 @@ export default function Artigo() {
           </Button>
         </div>
       </Card>
+
+      <Card className="p-8 mb-6">
+        <div className="flex items-start gap-4 mb-6">
+          <div className="p-4 rounded-lg bg-accent/10">
+            <FileText className="h-8 w-8 text-accent" />
+          </div>
+          <div className="flex-1">
+            <h2 className="text-2xl font-semibold text-foreground mb-2">
+              POTENCIAL ZOONÓTICO DAS PRINCIPAIS ENDOPARASITOSES EM CÃES E
+              GATOS: UMA REVISÃO INTEGRATIVA
+            </h2>
+            <p className="text-muted-foreground mb-4">
+              Estudo sobre os potenciais zoonéticos transmitidas por cães e gatos em seres humanos,
+              como estratégia de elaborar modelos de prevenção e promoção da saúde na população.
+            </p>
+
+            <div className="flex flex-wrap gap-2 mb-4">
+              <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">Vacinação</span>
+              <span className="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">Adultos</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-secondary/30 rounded-lg p-6 mb-6">
+          <h3 className="font-semibold text-lg mb-4 text-foreground">Resumo</h3>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            O artigo analisa a importância de investigar as principais
+            parasitoses transmitidas por cães e gatos em seres humanos,
+            como objetivo de elaborar modelos de prevenção e promoção da saúde na população.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-4 mb-6">
+          <div className="p-4 bg-card border border-border rounded-lg">
+            <h4 className="font-semibold mb-2 text-foreground">Publicação</h4>
+            <p className="text-sm text-muted-foreground">Departamento 1</p>
+          </div>
+          <div className="p-4 bg-card border border-border rounded-lg">
+            <h4 className="font-semibold mb-2 text-foreground">Ano</h4>
+            <p className="text-sm text-muted-foreground">2023</p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-4">
+          <Button className="flex-1 min-w-[200px]" asChild>
+            <a href="https://dspace.ufdpar.edu.br/jspui/handle/prefix/582" target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Ler Artigo Completo
+            </a>
+          </Button>
+        </div>
+      </Card>
+
+
+      <Card className="p-8 mb-6">
+        <div className="flex items-start gap-4 mb-6">
+          <div className="p-4 rounded-lg bg-accent/10">
+            <FileText className="h-8 w-8 text-accent" />
+          </div>
+          <div className="flex-1">
+            <h2 className="text-2xl font-semibold text-foreground mb-2">
+              PRINCIPAIS ZOONOSES EM PEQUENOS ANIMAIS: BREVE REVISÃO
+            </h2>
+            <p className="text-muted-foreground mb-4">
+              Estudo sobre as principais doenças transmitidas por cães e gatos em seres humanos,
+              como estratégia de elaborar modelos de prevenção e promoção da saúde na população.
+            </p>
+
+            <div className="flex flex-wrap gap-2 mb-4">
+              <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">Vacinação</span>
+              <span className="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">Adultos</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-secondary/30 rounded-lg p-6 mb-6">
+          <h3 className="font-semibold text-lg mb-4 text-foreground">Resumo</h3>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            O artigo analisa a importância de investigar as principais
+            parasitoses transmitidas por cães e gatos em seres humanos,
+            como objetivo de elaborar modelos de prevenção e promoção da saúde na população.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-4 mb-6">
+          <div className="p-4 bg-card border border-border rounded-lg">
+            <h4 className="font-semibold mb-2 text-foreground">Publicação</h4>
+            <p className="text-sm text-muted-foreground">rvz</p>
+          </div>
+          <div className="p-4 bg-card border border-border rounded-lg">
+            <h4 className="font-semibold mb-2 text-foreground">Ano</h4>
+            <p className="text-sm text-muted-foreground">2017</p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-4">
+          <Button className="flex-1 min-w-[200px]" asChild>
+            <a href="https://rvz.emnuvens.com.br/rvz/article/download/708/387" target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Ler Artigo Completo
+            </a>
+          </Button>
+        </div>
+      </Card>
+
+
+
 
       <Card className="p-8 mb-6">
         <div className="flex items-start gap-4 mb-6">

@@ -50,7 +50,6 @@ const Tutores = () => {
   ];
 
   const materiais = [
-    { titulo: "Guia Prático Completo", descricao: "PDF com todas as dosagens e protocolos" },
     { titulo: "Artigo Científico", descricao: "Embasamento científico das recomendações" },
     { titulo: "Tabela de Dosagens", descricao: "Referência rápida para consulta" },
   ];
@@ -444,6 +443,153 @@ const Tutores = () => {
             </li>
             <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
               Em caso de vômito persistente, dificuldade para respirar ou inchaço no rosto, procurar veterinário imediatamente.
+            </li>
+          </ul>
+        </Card>
+        <Card className="mb-8 p-6 shadow-[var(--shadow-medium)]">
+          <div className="flex items-center gap-2 mb-4">
+            <Info className="h-6 w-6 text-primary" />
+            <h2 className="text-2xl font-bold text-foreground">Ectoparasitas — Pulgas, Carrapatos e Sarnas</h2>
+          </div>
+
+          <p className="text-muted-foreground mb-4">
+            Ectoparasitas são parasitas externos que se fixam na pele e pelos dos animais, podendo transmitir doenças,
+            causar alergias graves e anemia — especialmente em filhotes. Os principais são: <strong>pulgas</strong>,
+            <strong> carrapatos</strong>, <strong>ácaros de sarna</strong> e <strong>piolhos</strong>.
+          </p>
+
+          {/* Tipos de Ectoparasitas */}
+          <h3 className="text-xl font-semibold text-foreground mt-4 mb-3">Principais Tipos</h3>
+          <ul className="space-y-3">
+            <li className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+              <strong>Pulgas (Ctenocephalides felis):</strong> causam coceira intensa, alergias (DAPP) e podem transmitir vermes.
+            </li>
+            <li className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+              <strong>Carrapatos (Rhipicephalus sanguineus):</strong> podem transmitir doenças graves como Erliquiose e Babesiose.
+            </li>
+            <li className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+              <strong>Sarna Sarcóptica:</strong> altamente contagiosa, provoca coceira severa, crostas e queda de pelos.
+            </li>
+            <li className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+              <strong>Sarna Demodécica:</strong> relacionada a baixa imunidade; causa lesões localizadas ou generalizadas.
+            </li>
+            <li className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+              <strong>Piolhos:</strong> comuns em animais resgatados; podem causar irritações e dermatites.
+            </li>
+          </ul>
+
+          {/* Sinais de Infestação */}
+          <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Sinais de Infestação</h3>
+          <ul className="space-y-3">
+            <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
+              Coceira intensa, principalmente na base da cauda (pulgas)
+            </li>
+            <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
+              Feridas, vermelhidão e crostas na pele
+            </li>
+            <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
+              Carrapatos visíveis aderidos à pele
+            </li>
+            <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
+              Queda excessiva de pelos e áreas sem pelagem
+            </li>
+            <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
+              Restos escuros na pele (“sujeirinhas”) indicam fezes de pulga
+            </li>
+          </ul>
+
+          {/* Tratamento Seguro */}
+          <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Tratamento Seguro</h3>
+          <p className="text-muted-foreground mb-2">
+            O tratamento deve SEMPRE ser supervisionado por um veterinário, pois cada animal, idade e peso
+            exigem um protocolo específico.
+          </p>
+
+          <ul className="space-y-3">
+            <li className="p-3 bg-green-500/5 rounded-lg border border-green-500/20">
+              <strong>Antipulgas e carrapaticidas:</strong> comprimidos, pipetas (spot-on) e coleiras específicas.
+            </li>
+            <li className="p-3 bg-green-500/5 rounded-lg border border-green-500/20">
+              <strong>Banhos medicamentosos:</strong> recomendados especialmente em casos de sarna.
+            </li>
+            <li className="p-3 bg-green-500/5 rounded-lg border border-green-500/20">
+              <strong>Limpeza do ambiente:</strong> 95% das pulgas ficam no ambiente, não no animal.
+            </li>
+            <li className="p-3 bg-green-500/5 rounded-lg border border-green-500/20">
+              <strong>Atenção a filhotes:</strong> produtos comuns podem ser tóxicos; o uso é restrito por idade e peso.
+            </li>
+          </ul>
+
+          {/* Prevenção */}
+          <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Prevenção</h3>
+          <ul className="space-y-3">
+            <li className="p-3 bg-yellow-500/5 rounded-lg border border-yellow-500/20">
+              Use antipulgas regularmente, conforme orientação veterinária.
+            </li>
+            <li className="p-3 bg-yellow-500/5 rounded-lg border border-yellow-500/20">
+              Lave caminhas, cobertores e brinquedos com frequência.
+            </li>
+            <li className="p-3 bg-yellow-500/5 rounded-lg border border-yellow-500/20">
+              Aspire o ambiente toda semana (ovos e larvas ficam no chão).
+            </li>
+            <li className="p-3 bg-yellow-500/5 rounded-lg border border-yellow-500/20">
+              Evite levar o pet em locais com alta infestação como matas e gramados altos.
+            </li>
+          </ul>
+
+          {/* Alerta */}
+          <Alert className="mt-6 border-destructive bg-destructive/10">
+            <AlertTriangle className="h-5 w-5 text-destructive" />
+            <AlertDescription className="text-foreground">
+              <strong>IMPORTANTE:</strong> nunca utilize produtos caseiros ou inseticidas de uso doméstico no animal —
+              isso pode causar envenenamento grave e até morte. Filhotes têm tolerância muito menor a antiparasitários.
+            </AlertDescription>
+          </Alert>
+        </Card>
+
+        {/* Zoonoses */}
+        <Card className="mb-8 p-6 shadow-[var(--shadow-medium)]">
+          <div className="flex items-center gap-2 mb-4">
+            <Info className="h-6 w-6 text-primary" />
+            <h2 className="text-2xl font-bold text-foreground">Zoonoses</h2>
+          </div>
+
+          <p className="text-muted-foreground mb-4">
+            Zoonoses são doenças que podem ser transmitidas dos animais para os seres humanos.
+            A prevenção é fundamental para a saúde de toda a família e envolve cuidados básicos
+            com vacinação, higiene e controle parasitário.
+          </p>
+
+          {/* Raiva */}
+          <h3 className="text-xl font-semibold mt-6 mb-2">Raiva</h3>
+          <ul className="space-y-3 mb-4">
+            <li className="p-3 bg-destructive/5 rounded-lg border border-destructive/20">
+              <strong>Causa:</strong> vírus transmitido principalmente pela mordida de animais infectados.
+            </li>
+            <li className="p-3 bg-destructive/5 rounded-lg border border-destructive/20">
+              <strong>Sinais:</strong> alterações comportamentais, agressividade, salivação excessiva,
+              dificuldade para engolir, convulsões e paralisia.
+            </li>
+            <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
+              <strong>Prevenção:</strong> vacinação anual obrigatória; evitar contato com animais
+              desconhecidos ou silvestres; procurar atendimento imediato após qualquer mordida.
+            </li>
+          </ul>
+
+          {/* Toxoplasmose */}
+          <h3 className="text-xl font-semibold mt-6 mb-2">Toxoplasmose</h3>
+          <ul className="space-y-3">
+            <li className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+              <strong>Causa:</strong> protozoário <em>Toxoplasma gondii</em>, transmitido principalmente
+              pela ingestão de alimentos contaminados ou contato com fezes infectadas.
+            </li>
+            <li className="p-3 bg-primary/5 rounded-lg border border-primary/20">
+              <strong>Sinais nos animais:</strong> na maioria das vezes são assintomáticos, mas podem
+              apresentar febre, apatia, diarreia ou problemas respiratórios.
+            </li>
+            <li className="p-3 bg-accent/5 rounded-lg border border-accent/20">
+              <strong>Prevenção:</strong> higienizar corretamente a caixa de areia dos gatos, evitar
+              oferecer carne crua aos animais, manter boa higiene das mãos e dos alimentos.
             </li>
           </ul>
         </Card>
